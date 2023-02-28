@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+{#    {{ 'sup' }}#}
+{#    {{  pagination.pagin }}#}
+    <div class="container">
+        <div class="row">
+            <h1 class="mb-5 mt-3">Blog</h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="container">
+                            <div class="row">
+                                {% include "section/posts.twig" with posts %}
+                            </div>
+                            <div class="row">
+                                {% include "section/pagination.twig" with pagination %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        {% include "section/about.twig" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1>{{ post.title|escape }}</h1>
+        {% if post.image_path is not null %}
+            <div class="img_wrap" style="width: 100%;height: 100%;object-fit: cover;object-position: 0 0;">
+                <img src="{{ asset_url( 'public/images/' ~ post.image_path ) }}" class="card-img-top" alt="{{ post.title|escape }}">
+            </div>
+        {% else %}
+        <img src="https://dummyimage.com/1200x400/3e2d8c/a19f42" class="" alt="...">
+        {% endif %}
+        <span>Sasha Skripkin | {{ post.published_date|date("F d, Y") }}</span>
+    </div>
+
+    <div>
+        {{ post.content|raw }}
+    </div>
+</div>
+{% endblock %}
